@@ -18,6 +18,6 @@ dstc7.egg-info/*
 *.tokens
 *.tsv
 *.zip
-data/
+# data/
 log/
 saved/
