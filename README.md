@@ -2,8 +2,8 @@
 "Training whole transformers is for big boys". Here, you can train a viable 12 layer transformer from home.  
 Here's my laptops GPU stats with a little more than 3gb spare memory.   
 <img src="img/gpu2.png">  
-And this is my laptop training a transformer. If this 4gb GPU computer can train a transformer, so can your (modern non-Mac) computer.  
-<img src="img/pretrain2.png">
+And this is my laptop training a transformer. If this 4gb GPU laptop can train a transformer, so can your (modern non-Mac) computer.  
+<img src="img/pretrain2.png">  
 Obviously a transformer, as large as it is, is typically only __one__ component of a larger specific model. You would need to do further work for whatever downstream tasks you intend on applying this to. 
 
 
