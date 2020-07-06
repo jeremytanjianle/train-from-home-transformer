@@ -54,11 +54,6 @@ Lan, Zhenzhong, et al. "Albert: A lite bert for self-supervised learning of lang
 Clark, Kevin, et al. "Electra: Pre-training text encoders as discriminators rather than generators." arXiv preprint arXiv:2003.10555 (2020).  
  
  Joshi, Mandar, et al. "Spanbert: Improving pre-training by representing and predicting spans." Transactions of the Association for Computational Linguistics 8 (2020): 64-77.
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
 
 [Great PyTorch Implementation of ALBERT](https://github.com/graykode/ALBERT-Pytorch)
-=======
->>>>>>> 4f3d5d061fa72e05554190682359f263326b5065
->>>>>>> Stashed changes
+
