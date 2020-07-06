@@ -1,19 +1,7 @@
 # A Transformer You Can Train From Home
-"Training whole transformers is for big boys". Here, you can train a viable 12 layer transformer from home.  
-Here's my laptops GPU stats with a little more than 3gb spare memory.   
-<<<<<<< HEAD
+"Training whole transformers is for big boys". Here, you can train a viable 12 layer transformer from home. If my [4gb GPU](img/gpu2.png) computer [can train a transformer](img/pretrain2.png), so can yours.  
 
-And this is my laptop training a transformer. If this [4gb GPU](img/gpu2.png) computer [can train a transformer](img/pretrain2.png), so can yours.  
-=======
-<img src="img/gpu2.png">  
-And this is my laptop training a transformer. If this 4gb GPU laptop can train a transformer, so can your (modern non-Mac) computer.  
-<img src="img/pretrain2.png">  
-<<<<<<< Updated upstream
-=======
->>>>>>> 4f3d5d061fa72e05554190682359f263326b5065
->>>>>>> Stashed changes
 Obviously a transformer, as large as it is, is typically only __one__ component of a larger specific model. You would need to do further work for whatever downstream tasks you intend on applying this to. 
-
 
 ### Installation
 Create an environment, perhaps with Conda:  
