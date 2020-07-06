@@ -83,13 +83,6 @@ class SentPairDataset(Dataset):
         f_next = self.f_pos # `f_next` should be next point
         tokens_b = self.read_tokens(f_next, len_tokens, False)
 
-        # there are no more tokens in the document
-        # split between tokens_a and tokens_b, halfway
-        if (len(tokens_b) == 0) & (len(tokens_a)>10):
-            half_split = int(len(tokens_a)/2)
-            tokens_b = tokens_a[half_split:]
-            tokens_a = tokens_a[:half_split]
-
         if tokens_a is None or tokens_b is None: # end of file
             self.f_pos.seek(0, 0) # reset file pointer
 
@@ -97,6 +90,13 @@ class SentPairDataset(Dataset):
             tokens_a = self.read_tokens(self.f_pos, len_tokens, True)
             f_next = self.f_pos # `f_next` should be next point
             tokens_b = self.read_tokens(f_next, len_tokens, False)
+
+        # there are no more tokens in the document
+        # split between tokens_a and tokens_b, halfway
+        if (len(tokens_b) == 0) & (len(tokens_a)>10):
+            half_split = int(len(tokens_a)/2)
+            tokens_b = tokens_a[half_split:]
+            tokens_a = tokens_a[:half_split]
 
         # SOP, sentence-order prediction
         instance = (is_next, tokens_a, tokens_b) if is_next \
