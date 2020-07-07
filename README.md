@@ -19,10 +19,13 @@ To download and finetune on downstream GLUE tasks:
 `python -m src.downstream.download_glue_data --data_dir data --tasks all`  
 `python -m src.downstream.glue`
 
-[Is it working?](img/Discriminator_Generator_Loss.png)  
-`pip install -U protobuf tensorflow`
-`pip install tensorboardX`
-`tensorboard --logdir logs`
+[Is it working?](img/Discriminator_Generator_Loss.png) Let's use tensorboardX:  
+`pip install -U protobuf tensorflow`  
+`pip install tensorboardX`  
+`tensorboard --logdir logs`  
+
+Running code tests:  
+`pytest -x "./tests"`  
 
 ### How does it work?
 Essentially, we have a hybrid model of ALBERT and ELECTRA. 

@@ -13,7 +13,7 @@ __pycache__
 *.bak
 .idea
 dstc7.egg-info/*
-*.ipynb
+# *.ipynb
 
 *.tokens
 *.tsv

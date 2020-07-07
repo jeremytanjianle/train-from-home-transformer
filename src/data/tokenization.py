@@ -5,6 +5,27 @@ from __future__ import print_function
 import collections
 import unicodedata
 import six
+from abc import ABC, abstractmethod
+
+import sentencepiece as spm
+
+
+class tokenizer_abstract_Class(ABC):
+    
+    @abstractmethod
+    def tokenize(self):
+        pass
+    
+    @abstractmethod
+    def convert_tokens_to_ids(self):
+        pass
+    
+    @abstractmethod
+    def convert_ids_to_tokens(self):
+        pass
+    
+    def convert_to_unicode(self, text):
+        return convert_to_unicode(text)
 
 
 def convert_to_unicode(text):
@@ -88,7 +109,7 @@ def whitespace_tokenize(text):
     return tokens
 
 
-class FullTokenizer(object):
+class FullTokenizer(tokenizer_abstract_Class):
     """Runs end-to-end tokenziation."""
 
     def __init__(self, vocab_file, do_lower_case=True):
@@ -110,8 +131,6 @@ class FullTokenizer(object):
     def convert_ids_to_tokens(self, tokens):
         return convert_ids_to_tokens(self.vocab, tokens)
 
-    def convert_to_unicode(self, text):
-        return convert_to_unicode(text)
 
 
 
@@ -286,3 +305,20 @@ def _is_punctuation(char):
     if cat.startswith("P"):
         return True
     return False
+
+
+class SPTokenizer(tokenizer_abstract_Class):
+    def __init__(self, model_path='spm.model', nbest_size=-1, alpha=0.1):
+        self.sp = spm.SentencePieceProcessor()
+        self.sp.Load(model_path)
+        self.nbest_size=nbest_size
+        self.alpha=alpha
+        
+    def tokenize(self, text):
+        return self.sp.sample_encode_as_pieces(text, self.nbest_size, self.alpha)
+    
+    def convert_tokens_to_ids(self, tokens):
+        return [self.sp.PieceToId(token) for token in tokens]
+    
+    def convert_ids_to_tokens(self, ids):
+        return [self.sp.IdToPiece(id_) for id_ in ids]

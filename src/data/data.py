@@ -71,7 +71,6 @@ class SentPairDataset(Dataset):
         """
         # sampling length of each tokens_a and tokens_b
         # sometimes sample a short sentence to match between train and test sequences
-        # ALBERT is same  randomly generate input
         # sequences shorter than 512 with a probability of 10%.
         len_tokens = randint(1, int(self.max_len / 2)) \
             if rand() < self.short_sampling_prob \
