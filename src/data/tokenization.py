@@ -308,11 +308,12 @@ def _is_punctuation(char):
 
 
 class SPTokenizer(tokenizer_abstract_Class):
-    def __init__(self, model_path='spm.model', nbest_size=-1, alpha=0.1):
+    def __init__(self, model_path='spm.model', nbest_size=-1, alpha=0.1, vocab_file = './data/spm.txt'):
         self.sp = spm.SentencePieceProcessor()
         self.sp.Load(model_path)
         self.nbest_size=nbest_size
         self.alpha=alpha
+        self.vocab = load_vocab(vocab_file)
         
     def tokenize(self, text):
         return self.sp.sample_encode_as_pieces(text, self.nbest_size, self.alpha)

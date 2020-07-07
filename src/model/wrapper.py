@@ -55,6 +55,7 @@ class Generator(nn.Module):
         logits_lm = self.decoder2(self.decoder1(h_masked)) + self.decoder_bias
         logits_clsf = self.classifier(pooled_h)
 
+        # logits_clsf is the prediction for SOP task
         return logits_lm, logits_clsf
 
 
@@ -90,8 +91,15 @@ class ELECTRA():
         self.args = args
         set_seeds(self.args.seed)
 
-        tokenizer = tokenization.FullTokenizer(vocab_file=args.vocab, do_lower_case=True)
-        tokenize = lambda x: tokenizer.tokenize(tokenizer.convert_to_unicode(x))
+        if args.tokenizer == 'bert_unigram':
+            tokenizer = tokenization.FullTokenizer(vocab_file=args.vocab, do_lower_case=True)
+            tokenize = lambda x: tokenizer.tokenize(tokenizer.convert_to_unicode(x))
+        elif args.tokenizer == 'sentencepiece':
+            tokenizer = tokenization.SPTokenizer(model_path=args.model_path,
+                                                 nbest_size=args.sp_nbest_size, 
+                                                 alpha=args.sp_alpha,
+                                                 vocab_file=args.vocab)
+            tokenize = lambda x: tokenizer.tokenize(tokenizer.convert_to_unicode(x))
 
         pipeline = [Preprocess4Pretrain(args.max_pred,
                                         args.mask_prob,

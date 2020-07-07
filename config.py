@@ -19,13 +19,19 @@ CONFIG_DICT={
     "max_len": 75,
     "p_drop_hidden": 0.1,
     "n_segments": 2,
-    "vocab_size": 30522,
+
+    # tokenizer config
+    "tokenizer": "sentencepiece", # "bert_unigram"
+    "model_path": "./data/spm.model",
+    "sp_nbest_size":-1,
+    "sp_alpha": 0.1,
+    "vocab": "./data/spm.vocab", # "./data/vocab.txt",
+    "vocab_size": 15000, # 30522
 
     # training config
     "name": "electra", 
     "ratio": 50, 
     "save_dir": "./saved", 
-    "vocab": "./data/vocab.txt",
     "seed": 128,
     "batch_size": 5,
     "lr": 5e-4,

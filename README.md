@@ -34,6 +34,7 @@ Essentially, we have a hybrid model of ALBERT and ELECTRA.
 3. Sentence-Order Prediction (SOP) training tasks: A better variant of Next Sentence Prediction (NSP)
 4. N-Gram MLM: From XLNET and SpanBERT
 5. Replaced Token Detection: A GAN-like training task of transformer networks, which we see in ELECTRA.
+6. Subword Regularization: Sentencepiece tokenizer will allow a more robust encoder
 
 ### Future implementations
 1. Further develop geenerator model for generative tasks, ie Beam Search.
@@ -44,7 +45,7 @@ Lan, Zhenzhong, et al. "Albert: A lite bert for self-supervised learning of lang
 
 Clark, Kevin, et al. "Electra: Pre-training text encoders as discriminators rather than generators." arXiv preprint arXiv:2003.10555 (2020).  
  
- Joshi, Mandar, et al. "Spanbert: Improving pre-training by representing and predicting spans." Transactions of the Association for Computational Linguistics 8 (2020): 64-77.
+Joshi, Mandar, et al. "Spanbert: Improving pre-training by representing and predicting spans." Transactions of the Association for Computational Linguistics 8 (2020): 64-77.
 
 [Great PyTorch Implementation of ALBERT](https://github.com/graykode/ALBERT-Pytorch)
 

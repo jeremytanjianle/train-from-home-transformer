@@ -1,3 +1,7 @@
+"""
+Sample usage:
+>>> python pretrain.py
+"""
 from random import randint, shuffle
 from random import random as rand
 
