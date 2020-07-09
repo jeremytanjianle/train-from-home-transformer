@@ -1,4 +1,6 @@
 # A Transformer You Can Train From Home
+<image src = "img/meme.jpg">
+
 "Training whole transformers is for big boys". Here, you can train a viable 12 layer transformer from home. If my [4gb GPU](img/gpu2.png) computer [can train a transformer](img/pretrain2.png), so can yours.  
 
 Obviously a transformer, as large as it is, is typically only __one__ component of a larger specific model. You would need to do further work for whatever downstream tasks you intend on applying this to. 
